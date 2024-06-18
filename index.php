@@ -57,9 +57,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <h1 class="text-center my-5">Ecco gli Hotel</h1>
+    <h1 class="text-center my-5 text-danger">Hotels</h1>
     <div class="container">
-        <table class="table">
+        <table class="table border border-dark">
         <thead>
             <tr>
             <th scope="col">Nome</th>
@@ -75,7 +75,7 @@
                 echo "<tr>";
                 foreach($data as $info => $key){
                     if($info == 'name'){
-                        echo "<td>$key</td>";
+                        echo "<td><b>$key</b></td>";
                     };
                     if($info == 'description'){
                         echo "<td>$key</td>";
@@ -99,7 +99,7 @@
             };
             ?>
         </tbody>
-</table>
+        </table>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
