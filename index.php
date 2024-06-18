@@ -37,13 +37,16 @@
         ],
     ];
     //CICLO NELL'ARRAY DEGLI HOTEL
-    foreach($hotels as $data){
-        foreach($data as $info){
-            echo ($info);
-            echo "<br>";
-        };
-        echo "<hr>";
-    };
+    // foreach($hotels as $data){
+    //     foreach($data as $info => $key){
+    //         // if($key == 'parking' && $info != 0){
+    //         //     echo 'C\'è parcheggio';
+    //         // }
+    //         echo "$info $key";
+    //         echo "<br>";
+    //     };
+    //     echo "<hr>";
+    // };
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,6 +56,36 @@
     <title>Hotel PHP Filter</title>
 </head>
 <body>
-    
+    <h1>Ecco gli Hotel</h1>
+    <?php 
+    foreach($hotels as $data){
+        foreach($data as $info => $key){
+            // if($key == 'parking' && $info != 0){
+            //     echo 'C\'è parcheggio';
+            // }
+            if($info == 'name'){
+                echo "<h2> $key </h2>";
+            };
+            if($info == 'description'){
+                echo "<p> $key </p>";
+            };
+            if($info == 'parking'){
+                if($key != 0){
+                    echo "<p>Parcheggio: Disponibile </p>";
+                }else{
+                    echo "<p>Parcheggio: <b>NON</b> Disponibile </p>";
+                }
+            }
+            if($info == "vote"){
+                echo "<p>Voto: <em>$key</em></p>";
+            }
+            if($info == "distance_to_center"){
+                $value = ceil($key);
+                echo "<p>Distanza dal centro: $value </p>";
+            }
+        };
+        echo "<hr>";
+    };
+    ?>
 </body>
 </html>
