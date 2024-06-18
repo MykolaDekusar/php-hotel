@@ -36,6 +36,23 @@
             'distance_to_center' => 50
         ],
     ];
-
-    echo var_dump($hotels);
+    //CICLO NELL'ARRAY DEGLI HOTEL
+    foreach($hotels as $data){
+        foreach($data as $info){
+            echo ($info);
+            echo "<br>";
+        };
+        echo "<hr>";
+    };
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel PHP Filter</title>
+</head>
+<body>
+    
+</body>
+</html>
