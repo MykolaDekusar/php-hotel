@@ -55,9 +55,9 @@
     <div class="container mb-3">
         <form action="index.php" method="GET" class="d-flex align-items-center">
             <select name="scelta" class="p-1">
-                <option value="undefined" selected>Tutti</option>
-                <option value="1">Con Parcheggio</option>
-                <option value="0">Senza Parcheggio</option>
+                <option value="undefined" <?php if($parking == 'undefined') echo'selected'; else echo '';?> >Tutti</option>
+                <option value="1" <?php if($parking === '1') echo'selected';else echo '';?>>Con Parcheggio</option>
+                <option value="0" <?php if($parking === '0') echo'selected';else echo ''; ?>>Senza Parcheggio</option>
             </select>
             <button class="btn btn-primary mx-2 p-1 px-3">Invia</button>
         </form>
