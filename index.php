@@ -77,72 +77,32 @@
             </thead>
             <!-- START OF TABLE BODY CREATED WITH PHP -->
             <tbody>
-                <?php
-                foreach($hotels as $data){
-                    //CHEKING IF PARKING HAS A VALUE
-                    if($parking != null && $parking != "undefined"){
-                        foreach($data as $info => $key){
-                            //CHEKING IF THE ARRAY HAS THE SAME VALUE AS THE PARKING VALUE AND SHOWING ONLY THE SAME VALUE ROWS
-                            if($info == "parking" && $parking == $key){
-                                echo "<tr>";
-                                    foreach($data as $info => $key){
-                                        if($info == 'name'){
-                                            echo "<td><b>$key</b></td>";
-                                        };
-                                        if($info == 'description'){
-                                            echo "<td>$key</td>";
-                                        };
-                                        if($info == 'parking'){
-                                            if($key != 0){
-                                                echo "<td class='text-success'>Disponibile </td>";
-                                            }else{
-                                                echo "<td class='text-danger'>Pieno</td>";
-                                            }
-                                        }
-                                        if($info == "vote"){
-                                            echo "<td class='text-center'><em>$key</em></td>";
-                                        }
-                                        if($info == "distance_to_center"){
-                                            $value = ceil($key);
-                                            echo "<td class='text-center'>$value m</td>";
-                                        }
-                                    };
-                                echo "</tr>";
-                            };
-                    };
-                    //IF PARKING IS NULL PRINT FULL TABLE
-                    }else{
-                        echo "<tr>";
-                            foreach($data as $info => $key){
-                                if($info == 'name'){
-                                    echo "<td><b>$key</b></td>";
-                                };
-                                if($info == 'description'){
-                                    echo "<td>$key</td>";
-                                };
-                                if($info == 'parking'){
-                                    if($key != 0){
-                                        echo "<td class='text-success'>Disponibile</td>";
-                                    }else{
-                                        echo "<td class='text-danger'>Pieno</td>";
-                                    }
-                                }
-                                if($info == "vote"){
-                                    echo "<td class='text-center'><em>$key</em></td>";
-                                }
-                                if($info == "distance_to_center"){
-                                    $value = ceil($key);
-                                    echo "<td class='text-center'>$value m</td>";
-                                }
-                            };
-                        echo "</tr>";
-                    };
-                };
-                ?>
+                <?php foreach($hotels as $data): ?>
+                    <!-- CHEKING IF PARKING HAS A VALUE -->
+                    <?php if($parking != null && $parking != "undefined"): ?>
+                            <!-- CHEKING IF THE ARRAY HAS THE SAME VALUE AS THE PARKING VALUE AND SHOWING ONLY THE SAME VALUE ROWS -->
+                            <?php if($data["parking"] == $parking): ?>
+                                <tr >
+                                    <td class="text-light"><b><?php echo $data['name'] ?></b></td>
+                                    <td class="text-light"><b><?php echo $data['description'] ?></b></td>
+                                    <td class="text-light"><b><?php echo $data["parking"] ? 'Si' : 'No' ?></b></td>
+                                    <td class="text-light"><b><?php echo $data["vote"] ?></b></td>
+                                    <td class="text-light"><b><?php echo $data["distance_to_center"] ?></b> Km</td>
+                                </tr>
+                            <?php endif; ?>
+                           <!-- IF PARKING IS NULL PRINT FULL TABLE -->
+                            <?php else: ?>
+                                <tr >
+                                    <td class="text-light"><b><?php echo $data['name'] ?></b></td>
+                                    <td class="text-light"><b><?php echo $data['description'] ?></b></td>
+                                    <td class="text-light"><b><?php echo $data["parking"] ? 'Si' : 'No' ?></b></td>
+                                    <td class="text-light"><b><?php echo $data["vote"] ?></b></td>
+                                    <td class="text-light"><b><?php echo $data["distance_to_center"] ?></b> Km</td>
+                                </tr>
+                            <?php endif; ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
-    <!-- BOOTSRAP -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
